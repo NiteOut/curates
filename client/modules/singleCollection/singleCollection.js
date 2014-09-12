@@ -25,7 +25,7 @@ angular.module('curates.singleCollection', [])
       if(val > 0){
         link.upVote++;
       } else {
-        link.downVote--;
+        link.downVote++;
       }
     };
 
