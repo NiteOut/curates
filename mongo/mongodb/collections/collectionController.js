@@ -45,16 +45,15 @@ module.exports = {
   },
 
   addLink: function(req, res) {
-    var link = {
-      url: req.body.link
-    };    
+    var title = req.body.title;
+    var link = req.body.link;
 
     Collections.findOne({title: title})
       .exec(function(err, collection) {
         if (!collection) {
           res.send('Collection does not exist');
         } else {
-          summary(link).then(function(data){
+          summary(link.url).then(function(data){
             link.description = data.summary;
             link.title = data.title;
             collection.links.push(link);
